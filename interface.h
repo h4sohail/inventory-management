@@ -1,0 +1,1 @@
+void startInterface(struct InventoryType*);

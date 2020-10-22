@@ -1,0 +1,1 @@
+int getProductIndex(struct InventoryType*, int);
