@@ -26,11 +26,12 @@ The includes are in "includes.h"
 
 ### Usage
 Compilation instructions:
+
 You can run the compile.sh file I included or run this command
 ```
 $ gcc -o app store_funcs.c client_funcs.c util_funcs.c interface.c main.c
 ```
-After that run 
+To run:
 ```
 $ ./app
 ```
