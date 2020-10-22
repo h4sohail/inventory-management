@@ -11,6 +11,8 @@ Files:
 
 I have seperated the functionality with these criteria:
 
+- Interface (related to the CLI, such as showing the user the commands and taking in input from the user)
+
 - Client (related to the funcs that a user would interface with, such as buying and adding stock)
 
 - Store (related to internal operations of the store such as memory allocation, initialization of the store)
