@@ -20,8 +20,9 @@ void makeStore(struct InventoryType* store) {
     store->productArr->size = 0;
 
     // Add dummy products
-    addProduct(store, "Business Desktop", 999.00, 39);
+    addProduct(store, "Gaming Desktop", 1999.00, 39);
     addProduct(store, "Business Desktop",999.00, 39);
+    addProduct(store, "Server Desktop",799.00, 39);
     addProduct(store, "Gaming Laptop", 1999.89, 25);
     addProduct(store, "Smart Fridge", 2478.98, 11);
     addProduct(store, "Smart TV", 499.89, 9);
