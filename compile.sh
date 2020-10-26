@@ -1,1 +1,1 @@
-gcc -o app store_funcs.c client_funcs.c util_funcs.c interface.c main.c
+gcc -o build/app src/store.c src/client.c src/util.c src/interface.c main.c

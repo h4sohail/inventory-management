@@ -1,4 +1,4 @@
-#include "headers.h"
+#include "headers/headers.h"
 
 /*
   Function:  startInterface
@@ -10,14 +10,14 @@ void startInterface(struct InventoryType* store) {
     int productId;
     int productAmount;
     float total = 0;
-    int choice = 1;
+    unsigned int choice;
 
-    while(choice != 4) {
+    do {
         printf("\nCommands: \n");
         printf("1: Show the inventory\n2: Add a stock to a product\n3: Buy a product\n4: Exit\n");
         printf("\n-The current total is $%.2f\n", total);
         printf("->");
-        scanf("%i", &choice);
+        scanf("%u", &choice);
 
         switch(choice) {
             case 1:
@@ -27,7 +27,8 @@ void startInterface(struct InventoryType* store) {
                 printf("\nPlease enter the product ID: \n");
                 printf("->");
                 scanf("%i", &productId);
-                if (sizeof(productId) < 1) {
+                
+                if (productId < 1) {
                     printf("Incorrect selection, please try again.\n");
                     break;
                 }
@@ -35,7 +36,8 @@ void startInterface(struct InventoryType* store) {
                 printf("\nPlease enter the amount of units to add: ");
                 printf("->");
                 scanf("%i", &productAmount);
-                if (sizeof(productAmount) < 1) {
+
+                if (productAmount < 1) {
                     printf("Incorrect selection, please try again.\n");
                     break;
                 }
@@ -45,26 +47,30 @@ void startInterface(struct InventoryType* store) {
             case 3:
                 printf("\nPlease enter the product ID: \n");
                 printf("->");
-                scanf("%d", &productId);
-                
+                scanf("%d", &productId);  
+
+                if (productId < 1) {
+                    printf("Incorrect selection, please try again.\n");
+                    break;
+                }
+
                 // Check the response code returned by buyProduct
-                int success = buyProduct(store, productId);
-                if (success != -1) {
+                int status = buyProduct(store, productId);
+                
+                if (status != -1) {
                     // Get the index of the product in the store and the price
                     int idx = getProductIndex(store, productId);
                     float price = store->productArr->productTypeArr[idx].price;
                     total += price; // Update the total
+                    break;
                 }
                 break;
             case 4:
                 printf("Good bye!\n");
-                break;
+                return;
             default:
-                printf("Incorrect selection, please try again.\n");
-                break;
+                printf("The input was invalid!\n");
+                return;
         }
-    }
-    // Free the memory allocated for the store
-    free(store->productArr);
-    free(store->productArr->productTypeArr);
+    } while(choice != 4);
 }

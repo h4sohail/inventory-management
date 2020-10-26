@@ -1,4 +1,4 @@
-#include "headers.h"
+#include "headers/headers.h"
 
 /*
   Function:  printInventory
@@ -29,7 +29,7 @@ void printInventory(struct InventoryType* store) {
        in:   pointer to the InventoryType structure (the store)
        in:   ID of the product
        in:   amount to of units to add
-   return:   void
+   return:   status code of 0 if successful otherwise -1
 */
 void addUnits(struct InventoryType* store, int productId, int productAmount) {
     unsigned int idx = getProductIndex(store, productId);

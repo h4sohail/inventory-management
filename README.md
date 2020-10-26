@@ -11,25 +11,32 @@ Files:
 
 I have seperated the functionality with these criteria:
 
-- Interface (related to the CLI, such as showing the user the commands and taking in input from the user)
+- Interface, src/interface.c (related to the CLI, such as showing the user the commands and taking in input from the user)
 
-- Client (related to the funcs that a user would interface with, such as buying and adding stock)
+- Client, src/client.c (related to the funcs that a user would interface with, such as buying and adding stock)
 
-- Store (related to internal operations of the store such as memory allocation, initialization of the store)
+- Store, src/store.c (related to internal operations of the store such as memory allocation, initialization of the store)
 
-- Utility (utility funcs used by either Store or Client internally, that a client does not interface with)
+- Utility src/util.c (utility funcs used by either Store or Client internally, that a client does not interface with)
 
 With each of them having their own header files for forward references
 
-The structures are defined in "data_types.h"
+The structures are defined in "src/headers/data_types.h"
 
-The includes are in "headers.h"
+The includes are in "src/headers.h"
 
 
 ### Usage
 Compilation instructions:
 
 You can run the compile.sh file I included or run this command
+On Windows, using GitBash or Linux
+```
+$ ./compile.sh
+```
+On MacOS or Unix
+```
+$ bash compile.sh
 ```
 $ gcc -o app store_funcs.c client_funcs.c util_funcs.c interface.c main.c
 ```
