@@ -29,7 +29,7 @@ The includes are in "src/headers.h"
 ### Usage
 Compilation instructions:
 
-You can run the compile.sh file I included or run this command
+You can run the compile.sh file I included
 On Windows, using GitBash or Linux
 ```
 $ ./compile.sh
@@ -38,7 +38,9 @@ On MacOS or Unix
 ```
 $ bash compile.sh
 ```
-$ gcc -o app store_funcs.c client_funcs.c util_funcs.c interface.c main.c
+Or run this command manually
+```
+$ gcc -o build/app src/store.c src/client.c src/util.c src/interface.c main.c
 ```
 To run:
 ```
